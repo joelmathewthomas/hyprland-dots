@@ -1,0 +1,5 @@
+[Added Associations]
+application/x-desktop=vim.desktop;
+text/plain=org.gnome.gedit.desktop;org.kde.kate.desktop;
+application/x-zerosize=org.kde.kate.desktop;
+application/x-shellscript=org.gnome.gedit.desktop;
