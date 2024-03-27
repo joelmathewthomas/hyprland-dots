@@ -1,5 +1,9 @@
 [Added Associations]
 application/x-desktop=vim.desktop;
-text/plain=org.gnome.gedit.desktop;org.kde.kate.desktop;
+text/plain=org.gnome.gedit.desktop;org.kde.kate.desktop;vim.desktop;
 application/x-zerosize=org.kde.kate.desktop;
 application/x-shellscript=org.gnome.gedit.desktop;
+image/png=firefox.desktop;thunar-settings.desktop;
+
+[Default Applications]
+image/png=thunar-settings.desktop
