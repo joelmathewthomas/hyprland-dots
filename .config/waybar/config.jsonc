@@ -4,6 +4,7 @@
     "spacing": 5,
     // Choose the order of the modules
     "modules-left": [
+        "cpu",
         "hyprland/workspaces"
     ],
     "modules-center": [
@@ -11,32 +12,34 @@
     ],
     "modules-right": [
         "custom/pacman",
+        "tray",
         "pulseaudio",
         "network",
         "battery",
-				"clock",
-        "custom/power"
-		],
-		"hyprland/window": {
-			"separate-outputs": true
-		},
+        "clock",
+        "backlight",
+        "group/group-power"
+    ],
+    "hyprland/window": {
+        "separate-outputs": true
+    },
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate"
     },
     "tray": {
-        // "icon-size": 21,
+        //"icon-size": 21,
         "spacing": 10
     },
-		"custom/pacman": {
-			"interval": 3600,
-			"return-type": "json",
-			"exec": "pacman-updates",
-			"exec-if": "exit 0",
-			"on-click": "kitty -e 'paru'; pkill -SIGRTMIN+8 waybar",
-			"signal": 8
-		},
+    "custom/pacman": {
+        "interval": 3600,
+        "return-type": "json",
+        "exec": "pacman-updates",
+        "exec-if": "exit 0",
+        "on-click": "kitty -e 'paru'; pkill -SIGRTMIN+8 waybar",
+        "signal": 8
+    },
     "clock": {
         "tooltip-format": "{:%A, %B %d, %Y}",
         "format": "{:%H:%M}"
@@ -50,26 +53,102 @@
         "format-charging": "󰂄",
         "format-good": "󰁹",
         "format-icons": [ "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ],
-				"tooltip-format": "{capacity}% capacity"
+        "tooltip-format": "{capacity}% capacity"
     },
     "network": {
-        "format-wifi": "󰤨",
+    	"interval": 60,
+    	"format": "{ifname}",
+        "format-wifi": "{essid}",  // 󰤨 
         "format-disconnected": "󰤭",
-				"tooltip-format": "Connected to {essid}"
+        "tooltip-format": "Connected to {essid}",
+        "on-click": "gnome-terminal -- nmtui"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon}",
+        "format": "{icon} {volume}%",
         "format-muted": "󰖁",
-				"format-icons": {
-					"default": ["", "", "󰕾"]
-				},
-				"tooltip-format": "{volume}% volume"
-		},
+        "format-icons": {
+            "default": ["", "", "󰕾"],
+            "headphone": "",
+		    "hands-free": "",
+		    "headset": "",
+		    "phone": "",
+		    "portable": "",
+		    "car": "",
+        },
+        "tooltip-format": "{volume}% volume",
+        "on-click": "pavucontrol"
+    },
+    "group/group-power": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/power", // First element is the "group leader" and won't ever be hidden
+            "user",
+            "idle_inhibitor",
+            "custom/quit",
+            "custom/sleep",
+            "custom/lock",
+            "custom/reboot"
+        ]
+    },
+    "custom/quit": {
+        "format": " 󰗼 ",
+        "tooltip": false,
+        "on-triple-click": "hyprctl dispatch exit"
+    },
+    "custom/lock": {
+        "format": " 󰍁 ",
+        "tooltip": false,
+        "on-click": "hyprlock"
+    },
+    "custom/sleep": {
+        "format": " 󰤄 ",
+        "tooltip": false,
+        "on-triple-click": "systemctl suspend; hyprlock"
+    },
+    "custom/reboot": {
+        "format": "   ",
+        "tooltip": false,
+        "on-triple-click": "reboot"
+    },
     "custom/power": {
-        "format": "󰐥",
-        "on-click": "sleep 0.15 && powermenu"
+        "format": " ",
+        "tooltip": false,
+        "on-triple-click": "shutdown now"
+    },
+    "idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+		    "activated": "",
+		    "deactivated": ""
+    	},
+    	"tooltip": true,
+		"tooltip-format-activated": "Idle inhibitor on",
+		"tooltip-format-deactivated": "Idle inhibitor off"
+    },
+    "user": {
+    	"format": "{user} (up {work_d} days ↑)",
+        "interval": 60,
+        "height": 30,
+        "width": 30,
+        "icon": false,	
+    }
+    ,
+    "backlight": {
+        "format": "{icon}  {percent}%",
+        "format-icons": ["󰃜", "󰃛", "󰃚"]
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "  {usage}%",
+        "max-length": 10
     }
 }
 
-// vim: ft=jsonc
+
+

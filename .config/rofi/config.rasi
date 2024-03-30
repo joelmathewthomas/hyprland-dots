@@ -6,7 +6,7 @@ configuration {
 }
 
 * {
-    font:   "CommitMono Nerd Font 12";
+    font:   "Cantarell 12";
     bg-color:   rgba(0, 0, 0, 25%);
     fg-color:   white;
     null-color: rgba(0, 0, 0, 0%);
@@ -16,9 +16,10 @@ configuration {
 
 #window {
     background-color:   @bg-color;
-    border:     0;
+    border:     3;
     border-radius:      10;
     padding:    0;
+    border-color:	lightblue;
 }
 
 #mainbox {
@@ -53,10 +54,10 @@ configuration {
 }
 
 #element.selected.normal {
-    background-color: rgba(0, 0, 0, 50%);
+    background-color: rgba(173, 216, 230,0.5);
     text-color:       white;
     border:     5;
-    border-radius:      10;
+    border-radius:      5;
 }
 
 #element.alternate.normal {
@@ -69,7 +70,7 @@ configuration {
     border:     0;
     border-radius:      10;
     spacing:    5;
-    text-color: black;
+    text-color: white;
     padding:    5px ;
 }
 

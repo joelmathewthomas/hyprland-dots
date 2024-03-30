@@ -1,18 +1,18 @@
-@define-color base   #1e1e2e;
-@define-color mantle #181825;
-@define-color crust  rgba(0,0,0,0);
+@define-color base      #1e1e2e;
+@define-color mantle    #181825;
+@define-color crust     rgba(0, 0, 0, 0);
 
-@define-color text     #cdd6f4;
-@define-color subtext0 #a6adc8;
-@define-color subtext1 #bac2de;
+@define-color text      #cdd6f4;
+@define-color subtext0  #a6adc8;
+@define-color subtext1  #bac2de;
 
-@define-color surface0 #313244;
-@define-color surface1 #45475a;
-@define-color surface2 #585b70;
+@define-color surface0  #313244;
+@define-color surface1  #45475a;
+@define-color surface2  #585b70;
 
-@define-color overlay0 #6c7086;
-@define-color overlay1 #7f849c;
-@define-color overlay2 #9399b2;
+@define-color overlay0  #6c7086;
+@define-color overlay1  #7f849c;
+@define-color overlay2  #9399b2;
 
 @define-color blue      #89b4fa;
 @define-color lavender  #b4befe;
@@ -83,9 +83,9 @@ button {
 }
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 0px;
     color: @surface2;
-    margin: 4px 0 4px 6px;
+    margin: 2px;
     transition: color 200ms ease-in-out;
 }
 
@@ -112,50 +112,48 @@ button {
 #pulseaudio,
 #wireplumber,
 #custom-pacman,
-#custom-power,
+#group-power,
 #tray,
 #mode,
 #idle_inhibitor,
 #scratchpad,
 #mpd {
-    padding: 0 9px;
+    padding: 0 4px;
     color: @text;
     border-radius: 15px;
-    margin: 5px 0;
+    margin: 2px 0;
 }
 
-#window,
-#workspaces {
-    margin: 0 4px;
+#cpu {
+    margin-left: 4px;
 }
 
-/* If workspaces is the leftmost module, reduce left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 2px;
+#idle_inhibitor.activated {
+	color: @green;
 }
 
 #clock {
-  color: @text;
+    color: @text;
 }
 
 #custom-pacman {
-  color: @peach;
+    color: @peach;
 }
 
 #pulseaudio {
-  color: @mauve;
+    color: @mauve;
 }
 
 #pulseaudio.muted {
-  color: @surface2;
+    color: @surface2;
 }
 
 #network {
-  color: @blue;
+    color: @blue;
 }
 
 #network.disconnected {
-  color: @surface2;
+    color: @surface2;
 }
 
 #battery {
@@ -166,9 +164,25 @@ button {
     color: @red;
 }
 
-#custom-power {
-  color: @maroon;
-  margin-right: 5px;
+#group-power {
+    color: @maroon;
+    margin-right: 5px;
+}
+
+#custom-reboot {
+    color: @green;
+}
+
+#custom-lock {
+    color: @blue;
+}
+
+#custom-quit {
+    color: @lavender;
+}
+
+#custom-sleep {
+    color: @sky;
 }
 
 #keyboard-state > label {
@@ -184,8 +198,11 @@ button {
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+    background-color: transparent;
 }
 
-/* vim: ft=sass
-*/
+#tray menu {
+    background-color: rgba(0, 0, 0, 0.25); /* Transparent background */
+    color: white;
+}
+
