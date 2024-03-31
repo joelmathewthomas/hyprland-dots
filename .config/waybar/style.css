@@ -46,14 +46,7 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
+
 
 window#waybar.termite {
     background-color: #3F3F3F;
@@ -112,13 +105,12 @@ button {
 #pulseaudio,
 #wireplumber,
 #custom-pacman,
-#group-power,
 #tray,
 #mode,
 #idle_inhibitor,
 #scratchpad,
 #mpd {
-    padding: 0 4px;
+    padding: 0 2px;
     color: @text;
     border-radius: 15px;
     margin: 2px 0;
@@ -166,7 +158,10 @@ button {
 
 #group-power {
     color: @maroon;
-    margin-right: 5px;
+}
+
+#group-cpu {
+	margin-right: 3px;
 }
 
 #custom-reboot {
@@ -205,4 +200,6 @@ button {
     background-color: rgba(0, 0, 0, 0.25); /* Transparent background */
     color: white;
 }
+
+
 

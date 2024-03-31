@@ -23,3 +23,11 @@
 .config/mimeapps.list
 .config/pavucontrol.ini
 .config/bpytop/
+.config/QtProject.conf
+.config/cava
+.config/gtk-3.0/
+.config/obs-studio/
+.config/qt6ct/
+.config/spotify/
+.config/xsettingsd/
+
