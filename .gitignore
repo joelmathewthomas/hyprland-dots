@@ -30,4 +30,6 @@
 .config/qt6ct/
 .config/spotify/
 .config/xsettingsd/
-
+.config/xdg-terminals.list
+.config/Hyprland-xdg-terminals.list
+.config/nwg-look/
