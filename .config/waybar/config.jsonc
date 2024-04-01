@@ -60,13 +60,8 @@
     },
     "battery": {
     	"interval": 10,
-        "states": {
-            "good": 76,
-            "warning": 20
-        },
         "format": "{icon}",
         "format-charging": "󰂄",
-        "format-good": "󰁹",
         "format-icons": [ "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ],
         "tooltip-format": "{capacity}% capacity"
     },
