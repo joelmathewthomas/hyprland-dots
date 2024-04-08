@@ -39,3 +39,6 @@
 .config/audacity/
 .config/kamosorc
 .config/kdeglobals
+.config/flutter/
+.config/gh/
+.config/peazip/
